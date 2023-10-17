@@ -6,10 +6,22 @@ let matrix = [
 
 let board = document.querySelector('.board');
 
+drawTokens()
+addEventListener()
+
 function drawTokens() {
     matrix.forEach(row => row.forEach(element => {
-        board.innerHTML += `<div class='token'>${element}</div>`
+        if (element == '') {
+            board.innerHTML += `<div class='empty'>${element}</div>`
+        } else {
+            board.innerHTML += `<div class='token'>${element}</div>`
+        }
     }))
 }
 
-drawTokens()
+function addEventListener() {
+    let tokens = document.querySelectorAll('.token')
+    tokens.forEach(token => token.addEventListener('click', () => {
+        console.log('Se hizo click')
+    }))
+}
