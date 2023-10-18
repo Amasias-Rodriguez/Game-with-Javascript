@@ -22,6 +22,13 @@ function drawTokens() {
 function addEventListener() {
     let tokens = document.querySelectorAll('.token')
     tokens.forEach(token => token.addEventListener('click', () => {
-        console.log('Se hizo click')
+        let actualPosition = searchPosition(token.innerText)
     }))
+}
+
+function searchPosition(element) {
+    matrix.forEach(row => {
+        let rowElement = row.findIndex(item => item == element)
+        console.log(rowElement)
+    })
 }
