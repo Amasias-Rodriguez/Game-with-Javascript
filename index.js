@@ -23,12 +23,19 @@ function addEventListener() {
     let tokens = document.querySelectorAll('.token')
     tokens.forEach(token => token.addEventListener('click', () => {
         let actualPosition = searchPosition(token.innerText)
+        console.log(actualPosition)
     }))
 }
 
 function searchPosition(element) {
-    matrix.forEach(row => {
+    let rowIndex = 0;
+    let columIndex = 0;
+    matrix.forEach((row, index) => {
         let rowElement = row.findIndex(item => item == element)
-        console.log(rowElement)
+        if (rowElement !== -1) {
+            rowIndex = index;
+            columIndex = rowElement;
+        }
     })
+    return [rowIndex, columIndex]
 }
