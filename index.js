@@ -24,6 +24,9 @@ function addEventListener() {
     tokens.forEach(token => token.addEventListener('click', () => {
         let actualPosition = searchPosition(token.innerText)
         console.log(actualPosition)
+
+        let emptyPosition = searchPosition('')
+        let movement = nextMovement(actualPosition, emptyPosition)
     }))
 }
 
@@ -38,4 +41,21 @@ function searchPosition(element) {
         }
     })
     return [rowIndex, columIndex]
+
+    function nextMovement(actualPosition, emptyPosition) {
+        if (actualPosition[0] - emptyPosition[0] == -1) {
+            console.log('abajo')
+        } else if (actualPosition[0] - emptyPosition[0] == 1) {
+            console.log('arriba')
+        }
+
+        else if (actualPosition[1] - emptyPosition[1] == -1) {
+            console.log('derecha')
+        }
+        else if (actualPosition[1] - emptyPosition[1] == 1) {
+            console.log('izquierda')
+        }else{
+            
+        }
+    }
 }
