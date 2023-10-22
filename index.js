@@ -41,21 +41,24 @@ function searchPosition(element) {
         }
     })
     return [rowIndex, columIndex]
+}
 
-    function nextMovement(actualPosition, emptyPosition) {
+function nextMovement(actualPosition, emptyPosition) {
+
+    if (actualPosition[1] == emptyPosition[1]) {
         if (actualPosition[0] - emptyPosition[0] == -1) {
             console.log('abajo')
         } else if (actualPosition[0] - emptyPosition[0] == 1) {
             console.log('arriba')
         }
-
-        else if (actualPosition[1] - emptyPosition[1] == -1) {
+    } else if (actualPosition[0] == emptyPosition[0]) {
+        if (actualPosition[1] - emptyPosition[1] == -1) {
             console.log('derecha')
         }
         else if (actualPosition[1] - emptyPosition[1] == 1) {
             console.log('izquierda')
-        }else{
-            
         }
+    } else {
+        console.log('no movimiento')
     }
 }
